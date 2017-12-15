@@ -2,27 +2,40 @@
 ## EPITECH PROJECT, 2017
 ## Makefile
 ## File description:
-## my_ls_bootstrap - Makefile
+## all clean fclean re
 ##
 
-SRC		= 	main_bsq.c
+SRC	=	main.c	\
+		mem_alloc.c	\
+		load_file.c	\
+		get_params_tab.c	\
+		display_array.c	\
+		algorithm.c	\
+		biggest_square.c	\
 
-OBJ		=	$(SRC:.c=.o)
+CC	= 	gcc
 
-CFLAGS		=	-W -Wall -Wextra
+OBJ	=	$(SRC:.c=.o)
 
-NAME		=	bsq
+NAME	=	bsq
 
-all:		$(NAME)
+CFLAGS	=	-I./include -Wextra -Wall -Werror
 
+FLAGS	=	-L./lib/my -lmy
+
+all:	prepare_lib $(NAME)
+
+prepare_lib:
+	make -C lib/my
 
 $(NAME):	$(OBJ)
-		gcc $(OBJ) -o $(NAME) -I./include
+	$(CC) -o $(NAME) $(OBJ) $(FLAGS) $(CFLAGS)
 
 clean:
-		rm -f $(OBJ)
+	make clean -C lib/my
+	rm -f $(OBJ)
 
-fclean:		clean
-		rm -f $(NAME)
+fclean:	clean
+	rm -f $(NAME)
 
-re: 		fclean all
+re:	fclean all

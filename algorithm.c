@@ -50,12 +50,10 @@ void fill_whole_array(char **str, coord_t size)
 {
 	int a = 0;
 
-	if (size.cols == 1 || size.lines == 1) {
-		my_printf("TEST\n");
+	if (size.cols == 1 || size.lines == 1)
 		return;
-	}
-	for (int i = 1; i < size.lines - a + 1; i++) {
-		for (int j = 1; j < size.cols - a + 1; j++)
+	for (int i = 1; i < size.lines; i++) {
+		for (int j = 1; j < size.cols; j++)
 			verif_o_or_dot(str, i, j, &a);
 	}
 }

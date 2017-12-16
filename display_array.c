@@ -11,4 +11,6 @@ void display(char **str, coord_t size)
 {
 	for (int i = 0; i < size.lines; i++)
 		my_putstr(str[i]);
+	if (str[size.lines - 1][size.cols] == '\0')
+		my_putchar('\n');
 }

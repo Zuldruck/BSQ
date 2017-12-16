@@ -22,7 +22,7 @@ int get_nbr_cols(int len, char *str)
 	int i = len;
 	int j = 0;
 
-	while (str[i] != '\n') {
+	while (str[i] != '\n' && str[i] != '\0') {
 		j++;
 		i++;
 	}

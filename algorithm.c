@@ -36,25 +36,21 @@ char check_sides(char **str, int line, int col)
 	return (corner + 1);
 }
 
-void verif_o_or_dot(char **str, int i, int j, int *a)
+void verif_o_or_dot(char **str, int i, int j)
 {
 	if (str[i][j] == 'o')
 		str[i][j] = '0';
 	else
 		str[i][j] = check_sides(str, i, j);
-	if (str[i][j] - 48 > *a)
-		*a = str[i][j] - 48;
 }
 
 void fill_whole_array(char **str, coord_t size)
 {
-	int a = 0;
-
 	if (size.cols == 1 || size.lines == 1)
 		return;
 	for (int i = 1; i < size.lines; i++) {
 		for (int j = 1; j < size.cols; j++)
-			verif_o_or_dot(str, i, j, &a);
+			verif_o_or_dot(str, i, j);
 	}
 }
 

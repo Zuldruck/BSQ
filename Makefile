@@ -5,13 +5,13 @@
 ## all clean fclean re
 ##
 
-SRC	=	main.c	\
-		mem_alloc.c	\
-		load_file.c	\
-		get_params_tab.c	\
-		display_array.c	\
-		algorithm.c	\
-		biggest_square.c	\
+SRC	=	src/main.c	\
+		src/mem_alloc.c	\
+		src/load_file.c	\
+		src/get_params_tab.c	\
+		src/display_array.c	\
+		src/algorithm.c	\
+		src/biggest_square.c	\
 
 CC	= 	gcc
 
